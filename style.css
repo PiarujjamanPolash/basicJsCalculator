@@ -1,0 +1,52 @@
+body{
+    padding: 60px;
+}
+
+.sitetitle{
+    text-align: center;
+    font-size: 30px;
+}
+
+.loginbox{
+    max-width: 400px;
+    margin-top: 50px;
+    padding: 50px;
+    border-radius: 10px;
+    border-color: brown;
+    text-align: center;
+    margin: auto;
+    box-shadow: 5px 5px 10px grey;
+}
+.loginbox button{
+    margin-top: 10px;
+}
+
+.css{
+   
+    margin: 10px;
+}
+
+#transactionarea{
+    display: none;
+}
+
+.deposit{
+    background-color: slateblue
+}
+.withdraw{
+    background-color: red;
+}
+.balance{
+    background-color: orange;
+}
+.status{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 20px;
+}
+.status h5, h2{
+    color: white;
+}
+.padd{
+    padding: 10px;
+}
