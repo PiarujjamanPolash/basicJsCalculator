@@ -12,12 +12,14 @@
 <body>
     <!-- Login Area Start -->
     <div class="container" id="logincontainer">
-            <h1 style="margin-bottom: 40px" class="sitetitle">Welcome to Polash's Simple JS Calculator</h1>
+        <h1 style="margin-bottom: 40px" class="sitetitle">Welcome to Polash's Simple JS Calculator</h1>
         <div class="loginbox">
+
             <h4>Login to Claculator</h4>
             <input type="text" class="form-control css" placeholder="Username">
             <input type="password" class="form-control css" placeholder="password">
             <button id="submit" type="submit" class="btn btn-primary">Login</button>
+
         </div>
     </div>
 <!-- Login Area End -->
@@ -28,50 +30,56 @@
         <h1 style="margin-bottom: 30px;" class="sitetitle">Welcome Polash</h1>
 
         <div class="row">
+
             <div class="col-md-4 padd">
                 <div class="deposit status">
                     <h5>Deposit</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentDeposit">00</span></h2>
                 </div>
             </div>
+
             <div class="col-md-4 padd">
                 <div class="withdraw status">
                      <h5>Withdraw</h5>
-                     <h2>$00</h2>
+                     <h2>$ <span id="currentWithdraw">00</span></h2>
                 </div>
             </div>
+
             <div class="col-md-4 padd">
                 <div class="balance status">
                     <h5>Balance</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentBalance">00</span></h2>
                 </div>
             </div>
+
         </div> 
 
         <div style="margin-top: 50px;" class="row">
+
             <div class="col-md-6">
                 <div class="loginbox">
                     <h4>Deposit</h4>
-                    <input id="depositAmount" type="text" placeholder="Total amount to Deposit">
+                    <input id="totaldeposit" type="text" placeholder="Total amount to Deposit">
                     <br>
                     <button id="addDeposit" class="btn btn-success">Deposit</button>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="loginbox">
                     <h4>Withdraw</h4>
-                    <input type="text" placeholder="Total amount to Withdraw">
+                    <input id="withdrawDeposit" type="text" placeholder="Total amount to Withdraw">
                     <br>
-                    <button class="btn btn-success">Withdraw</button>
+                    <button id="addWithdraw" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
+
         </div>
-
-
     </div>
+
 <!-- Transaction Area End -->
 
-    
+    <!-- Javascript Start -->
     <script>
         //Event handler for logins
 
@@ -85,11 +93,45 @@
 
         //Event Handler for Deposit
         
-        // const depositBtn = document.getElementById("addDeposit");
-        // depositBtn.addEventListener("click", function{
-        //     const depositAmount = document.getElementById("depositAmount").value;
-        //     const depositNumber = parseFloat(depositAmount);
-        // })
+            const depositBtn = document.getElementById("addDeposit");
+            depositBtn.addEventListener("click", function(){
+            const depositAmount = document.getElementById("totaldeposit").value;
+            const depositNumber = parseFloat(depositAmount);
+
+            spanTextUpdate("currentDeposit", depositNumber);
+            spanTextUpdate("currentBalance", depositNumber);
+
+            document.getElementById("currentDeposit").value = "";
+
+            })
+
+        //event handler for withdraw
+            const withdrawBtn = document.getElementById("addWithdraw");
+            withdrawBtn.addEventListener("click", function(){
+            const withdrawAmount = document.getElementById("withdrawDeposit").value;
+            const withdrawNumber = parseFloat(withdrawAmount);
+
+            spanTextUpdate("withdrawDeposit", withdrawNumber);
+
+            document.getElementById("withdrawDeposit").value = "";
+        })
+
+
+
+        function getInputNumber(id){
+            const withdrawAmount = document.getElementById("withdrawDeposit").value;
+            const withdrawNumber = parseFloat(withdrawAmount);
+        }
+
+            //deposit Function
+        function spanTextUpdate(id, depositNumber){
+                const oldDeposit = document.getElementById(id).innerText;
+                const currentDepositNumber = parseFloat(oldDeposit);
+                const totalDepositNumber = depositNumber + currentDepositNumber;
+                document.getElementById(id).innerText = totalDepositNumber;
+            
+        }
+
 
     </script>
 </body>
