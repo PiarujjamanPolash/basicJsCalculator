@@ -91,7 +91,7 @@
             TransactionArea.style.display = "block"
         })
 
-        //Event Handler for Deposit
+        // Deposit
         
             const depositBtn = document.getElementById("addDeposit");
             depositBtn.addEventListener("click", function(){
@@ -103,25 +103,16 @@
 
             document.getElementById("currentDeposit").value = "";
 
-            })
+        })
 
-        //event handler for withdraw
+        // withdraw
             const withdrawBtn = document.getElementById("addWithdraw");
             withdrawBtn.addEventListener("click", function(){
             const withdrawAmount = document.getElementById("withdrawDeposit").value;
             const withdrawNumber = parseFloat(withdrawAmount);
-
-            spanTextUpdate("withdrawDeposit", withdrawNumber);
-
-            document.getElementById("withdrawDeposit").value = "";
+            document.getElementById("withdrawDeposit").value = withdrawNumber;
+            
         })
-
-
-
-        function getInputNumber(id){
-            const withdrawAmount = document.getElementById("withdrawDeposit").value;
-            const withdrawNumber = parseFloat(withdrawAmount);
-        }
 
             //deposit Function
         function spanTextUpdate(id, depositNumber){
